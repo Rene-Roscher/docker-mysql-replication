@@ -37,7 +37,7 @@ jobs:
           password: ${{ secrets.DOCKER_REGISTRY_TOKEN }}
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+        run: docker build . --file docker/Dockerfile --tag $IMAGE_NAME
 
       - name: Push image
         run: |
