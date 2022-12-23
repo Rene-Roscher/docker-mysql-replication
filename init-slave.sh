@@ -26,14 +26,7 @@ check_slave_health () {
 
 echo Updating master connetion info in slave.
 
-mysql -u root -e "RESET MASTER; \
-  CHANGE MASTER TO \
-  MASTER_HOST='$MASTER_HOST', \
-  MASTER_PORT=$MASTER_PORT, \
-  MASTER_USER='$REPLICATION_USER', \
-  MASTER_PASSWORD='$REPLICATION_PASSWORD';"
-
-sleep 5
+mysql -u root -e "RESET MASTER;CHANGE MASTER TO MASTER_HOST='$MASTER_HOST', MASTER_PORT=$MASTER_PORT, MASTER_USER='$REPLICATION_USER', MASTER_PASSWORD='$REPLICATION_PASSWORD';"
 
 mysqldump \
   --protocol=tcp \
